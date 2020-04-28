@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var submit,nam;
+        window.onload = function (ev){
+             submit = document.getElementById('submit-btn');
+             nam = document.getElementById('name');
+            addEvent(submit,'click',myFunction);
+            var event = ev || event;
+            addEvent(document,'keydown',function(ev){
+                var event = ev|| event;
+                if (event.keyCode == 13){
+                    console.log(nam.value);
+                }
+                else if(event.keyCode == 27){
+                    nam.value="";
+                }
+            });
+
+        }
+        function addEvent(element,even,func) {
+            if(element.addEventListener) { //所有主流浏览器，除了IE 8及更早版本
+                element.addEventListener(even, func);
+            }
+            else if(element.attachEvent){  // IE 8及更早版本
+                element.attachEvent(even,func);
+            }
+        }
+        function myFunction() {
+
+            console.log(nam.value);
+
+        }
+    </script>
+</head>
+<body>
+<input id="name" type="text"/>
+<button id="submit-btn">提交</button>
+<!--
+当点击按钮 submit-btn 时，在console中输出 name 中的内容
+在输入过程中，如果按回车键，则同样执行上一条的需求
+在输入过程中，如果按 ESC 键，则把输入框中的内容清空
+-->
+</body>
+</html>
