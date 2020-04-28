@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table,tbody,tr,th{
+            border: 2px #cccccc solid;
+
+        }
+        table{
+            width:630px;
+            height:540px;
+        }
+    </style>
+    <script>
+      window.onload = function()
+      {
+          var number = new Array(9);
+          var tbody = document.getElementsByTagName('tbody')[0];
+
+          var tr = [];
+          for(var i = 0; i< number.length;i++){
+           tr[i] = document.createElement('tr');
+           tbody.appendChild(tr[i]);
+
+           // var th = [] ;
+           // th[1] = document.createElement('th');
+           // tr[i].appendChild(th[1]);
+           // th[2] = document.createElement('th');
+           // tr[i].appendChild(th[2]);
+
+           var th = [];
+           for(var j = 0 ;j<9 ; j++)
+           {
+
+               th[j] =document.createElement('th');
+               tr[i].appendChild(th[j]);
+           }
+
+           number[i] = new Array();
+
+
+           for(var j = 0 ;j<=i;j++) {
+               number[i][j] ='';
+               number[i][j] += (i + 1) + '*' + (j+1) + '=' + (i + 1) * (j+1);
+               th[j].innerHTML = number[i][j];
+
+           }
+       }
+
+
+       // for(var i = 0;i<number.length;i++){
+       //     var str='';
+       //    for(var j = 0;j<number[i].length;j++){
+       //        str += number[i][j]+" ";
+       //
+       //    }
+       //    console.log(str);
+       //
+       // }
+      }
+
+
+    </script>
+</head>
+<body>
+<div>
+<table>
+    <thead>九九乘法表</thead>
+    <tbody>
+
+    </tbody>
+</table>
+</div>
+</body>
+</html>
